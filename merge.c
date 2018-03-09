@@ -1,3 +1,5 @@
+//Panturu Gloria Sara
+//2AHIF
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -45,4 +47,34 @@ void print_array(int* array, int n)
 
 void merge(int* first_array, int n_first, int* second_array, int n_second, int* merged_array)
 {
+  int first_count = 0;
+  int second_count = 0;
+  int merged_count = 0;
+
+  while (first_count < n_first && second_count < n_second) {
+    if (first_array[first_count] <= second_array[second_count]) {
+      merged_array[merged_count] = first_array[first_count];
+      first_count++;
+    }
+    else
+    {
+      merged_array[merged_count] = second_array[second_count];
+      second_count++;
+    }
+    merged_count++;
+  }
+
+  while(first_count < n_first)
+  {
+    merged_array[merged_count] = first_array[first_count];
+    first_count++;
+    merged_count++;
+  }
+
+  while(second_count < n_second)
+  {
+    merged_array[merged_count] = second_array[second_count];
+    second_count++;
+    merged_count++;
+  }
 }
